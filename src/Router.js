@@ -9,7 +9,7 @@ class AppRouter extends Component {
         <Scene key="root">
           <Scene
             key="login"
-            title="Login"
+            title="Manager Login"
             component={LoginForm}
             initial
           />

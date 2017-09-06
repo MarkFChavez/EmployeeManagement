@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Text } from 'react-native';
-import { Card, CardSection, Input } from './common';
+import { Card, CardSection, Input, Button } from './common';
 
 class LoginForm extends Component {
   render () {
@@ -21,9 +21,7 @@ class LoginForm extends Component {
           />
         </CardSection>
 
-        <CardSection>
-          <Text> Button </Text>
-        </CardSection>
+        <Button text="Log In" onPress={() => console.log('pressed')} />
       </Card>
     )
   }
