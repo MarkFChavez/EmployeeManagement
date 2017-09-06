@@ -1,5 +1,1 @@
-- Add reusable components
-* Card
-* CardSection
-* Input
-* Button
+* setup redux for authentication
