@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Text } from 'react-native';
 import { Card, CardSection, Input, Button } from './common';
 import { connect } from 'react-redux';
-import { emailChange } from '../actions/AuthActions';
+import { emailChange, passwordChange } from '../actions';
 
 class LoginForm extends Component {
   render () {
@@ -22,6 +22,8 @@ class LoginForm extends Component {
             secureTextEntry
             label="Password"
             placeholder="password"
+            onChangeText={password => this.props.passwordChange(password)}
+            value={this.props.password}
           />
         </CardSection>
 
@@ -36,4 +38,4 @@ const mapStateToProps = (state) => {
   return { email }
 }
 
-export default connect(mapStateToProps, { emailChange })(LoginForm);
+export default connect(mapStateToProps, { emailChange, passwordChange })(LoginForm);
