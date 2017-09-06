@@ -1,17 +1,24 @@
 import React, { Component } from 'react';
 import { Text } from 'react-native';
-import { Card, CardSection } from './common';
+import { Card, CardSection, Input } from './common';
 
 class LoginForm extends Component {
   render () {
     return (
       <Card>
         <CardSection>
-          <Text> Email </Text>
+          <Input
+            label="Email"
+            placeholder="juan@pilipinas.com"
+          />
         </CardSection>
 
         <CardSection>
-          <Text> Password </Text>
+          <Input
+            secureTextEntry
+            label="Password"
+            placeholder="password"
+          />
         </CardSection>
 
         <CardSection>
