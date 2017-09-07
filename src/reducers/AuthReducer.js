@@ -1,9 +1,16 @@
-import { EMAIL_CHANGED, PASSWORD_CHANGED, LOGIN_USER_SUCCESS, LOGIN_USER_FAIL } from '../actions/types';
+import {
+  EMAIL_CHANGED,
+  PASSWORD_CHANGED,
+  LOGIN_USER_SUCCESS,
+  LOGIN_USER_FAIL,
+  LOGIN_USER
+} from '../actions/types';
 
 const initialState = {
   email: '',
   password: '',
   error: '',
+  loading: false,
   user: null
 }
 
@@ -19,7 +26,10 @@ const AuthReducer = (state = initialState, action) => {
       return { ...state, ...initialState, user: action.payload }
 
     case LOGIN_USER_FAIL:
-      return { ...state, password: '', error: 'Authentication failed' }
+      return { ...state, password: '', loading: false, error: 'Authentication failed' }
+
+    case LOGIN_USER:
+      return { ...state, error: '', loading: true }
 
     default:
       return state;
