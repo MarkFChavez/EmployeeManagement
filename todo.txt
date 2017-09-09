@@ -1,2 +1,1 @@
-* setup firebase authentication
-* setup redux thunk for authenticating user
+* firebase data creation
