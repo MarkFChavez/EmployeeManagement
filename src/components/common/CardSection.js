@@ -14,8 +14,6 @@ const styles = {
     flexDirection: 'row',
     justifyContent: 'flex-start',
     alignItems: 'center',
-    borderWidth: 1,
-    borderColor: 'gray',
     marginTop: 5,
     marginBottom: 5
   }
