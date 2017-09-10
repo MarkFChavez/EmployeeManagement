@@ -23,7 +23,7 @@ const AuthReducer = (state = initialState, action) => {
       return { ...state, password: action.payload };
 
     case LOGIN_USER_SUCCESS:
-      return { ...state, ...initialState, user: action.payload }
+      return { ...state, ...initialState }
 
     case LOGIN_USER_FAIL:
       return { ...state, password: '', loading: false, error: 'Authentication failed' }

@@ -1,9 +1,11 @@
-import { EMPLOYEES_FETCH_SUCCESS } from '../actions';
+import { EMPLOYEES_FETCH_SUCCESS } from '../actions/types';
 
-const EmployeesReducer = (state = {}, action) => {
+const INITIAL_STATE = {};
+
+const EmployeesReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case EMPLOYEES_FETCH_SUCCESS:
-      return { ...state, employees: action.payload };
+      return action.payload;
 
     default:
       return state;

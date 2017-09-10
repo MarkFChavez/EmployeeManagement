@@ -31,10 +31,10 @@ const employeesFetch = () => {
     const { currentUser } = firebase.auth();
 
     firebase.database().ref(`/users/${currentUser.uid}/employees`)
-      .on('value', data => {
+      .on('value', snapshot => {
         dispatch({
           type: EMPLOYEES_FETCH_SUCCESS,
-          payload: data.val()
+          payload: snapshot.val()
         })
       })
   }

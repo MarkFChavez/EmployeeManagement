@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { View, Text, ListView } from 'react-native';
+import _ from 'lodash';
+import { ListView, Text } from 'react-native';
 import { connect } from 'react-redux';
 import { employeesFetch } from '../actions';
-import _ from 'lodash';
+import { ListItem } from './common';
 
 class EmployeeList extends Component {
   static navigationOptions = {
@@ -11,11 +12,12 @@ class EmployeeList extends Component {
 
   componentWillMount () {
     this.props.employeesFetch();
-
     this.setDataSource(this.props);
   }
 
   componentWillReceiveProps (nextProps) {
+    console.log('hahaha');
+    console.log(nextProps);
     this.setDataSource(nextProps);
   }
 
@@ -29,16 +31,16 @@ class EmployeeList extends Component {
 
   renderRow (employee) {
     return (
-      <Text> {employee.name} </Text>
+      <Text>{employee.name}</Text>
     )
   }
 
   render () {
     return (
       <ListView
+        enableEmptySections
         dataSource={this.dataSource}
         renderRow={this.renderRow}
-        enableEmptySections
       />
     )
   }
@@ -47,7 +49,7 @@ class EmployeeList extends Component {
 const mapStateToProps = (state) => {
   const employees = _.map(state.employees, (value, uid) => {
     return { ...value, uid };
-  })
+  });
 
   return { employees };
 }

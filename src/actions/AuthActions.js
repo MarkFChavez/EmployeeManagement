@@ -25,8 +25,7 @@ const passwordChange = (text) => {
 
 const onLoginSuccess = (dispatch, user) => {
   dispatch({
-    type: LOGIN_USER_SUCCESS,
-    payload: user
+    type: LOGIN_USER_SUCCESS
   })
 
   Actions.employeeList()
