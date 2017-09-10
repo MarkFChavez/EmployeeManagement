@@ -1,4 +1,4 @@
-import { EMPLOYEE_UPDATE, EMPLOYEE_CREATE_SUCCESS } from './types';
+import { EMPLOYEE_UPDATE, EMPLOYEE_CREATE_SUCCESS, EMPLOYEES_FETCH_SUCCESS } from './types';
 import firebase from 'firebase';
 import { Actions } from 'react-native-router-flux';
 
@@ -26,4 +26,18 @@ const employeeCreate = ({ name, phone, shift }) => {
   }
 }
 
-export { employeeUpdate, employeeCreate }
+const employeesFetch = () => {
+  return (dispatch) => {
+    const { currentUser } = firebase.auth();
+
+    firebase.database().ref(`/users/${currentUser.uid}/employees`)
+      .on('value', data => {
+        dispatch({
+          type: EMPLOYEES_FETCH_SUCCESS,
+          payload: data.val()
+        })
+      })
+  }
+}
+
+export { employeeUpdate, employeeCreate, employeesFetch }
